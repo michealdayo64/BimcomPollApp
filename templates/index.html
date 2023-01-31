@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'header.html' %}
+
+{% if messages %}
+{% for messege in messages %}
+    <div class="container">
+        <div class="alert alert-success alert-dismissable" role="alert">
+            <button class="close" data-dismiss="alert">
+                <small><sup>x</sup></small>
+            </button>
+            {{ messege }}
+        </div>
+    </div>
+{% endfor %}
+{% endif %}
+   
+    <div class="d-flex justify-content-center mt-4">
+
+       <div class="card p-3 mt-3">
+          <h5 class="mt-3 mb-3">List of Polling Unit</h5>
+            {% for pol in pol_unit %}
+            <div class="border p-2 rounded d-flex flex-row align-items-center">
+
+
+             <div class="ml-2 p-3">
+                 <h6 class="heading1" style="color: blue;">Name - {{ pol.polling_unit_name }}</h6>
+                 <span>Number - {{ pol.polling_unit_number }}</span> 
+              </div>
+              
+            </div>  
+            <a href="{% url 'polling-result' pol.id %}" class="btn btn-primary">View Result</a>
+            <br>
+            <br>
+                 
+           {% endfor %}
+           <br>
+         <br>
+         </div>
+         
+        
+  </div>
+
+  {% include 'pagination.html' %}
+{% endblock %}

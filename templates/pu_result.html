@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'header.html' %}
+
+<div class="mt-5">
+    <h2>Polling Detail</h2>
+    <div class="card p-3 card-1">
+
+
+        <div class="info d-flex justify-content-between align-items-center">
+
+            <div class="group d-flex flex-column">
+
+                <h5 class="font-weight-bold">{{ pu_id.polling_unit_name }}</h5>
+                <small>{{ pu_id.polling_unit_number}}</small>
+                
+            </div>
+
+            <i class="fa fa-bell-o"></i>
+            
+        </div>
+
+
+
+        
+    </div>
+    
+
+</div>
+
+<div class="mt-5">
+
+    <div class="row">
+
+      <div class="col-md-8 mx-auto">
+<h2>Polling Result</h2>
+        <table class="table bg-white rounded border table-hover table-dark">
+<thead>
+<tr>
+  <th scope="col">S/N</th>
+  <th scope="col">Party Name</th>
+  <th scope="col">Party Score</th>
+  <th scope="col">Entered By User</th>
+  <th scope="col">Date Entered</th>
+  <th scope="col">User Ip Address</th>
+</tr>
+</thead>
+<tbody>
+    {% for i in pu_result %}
+<tr>
+  <th scope="row">{{ forloop.counter }}</th>
+  <td>{{ i.party_abbreviation }}</td>
+  <td>{{ i.party_score }}</td>
+  <td>{{ i.entered_by_user }}</td>
+  <td>{{ i.date_entered }}</td>
+  <td>{{ i.user_ip_address }}</td>
+</tr>
+{% endfor %}
+<tr>
+    
+</tbody>
+</table>
+        
+      </div>
+      
+    </div>
+    
+
+  </div>
+{% endblock %}

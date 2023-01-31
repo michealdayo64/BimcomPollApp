@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% include 'header.html' %}
+    <div class="container">
+        <br>
+        <br>
+
+        <form action="" class="form-inline" method="post">
+            <label for="" class="my-1 mr-2">Select Local Government</label>
+            <select name="lga" id="lgaText">
+                <option value="">Select...</option>
+                {% for loc in local_gov %}
+                <option value="{{ loc.id }}">{{ loc.lga_name }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit" class="btn btn-primary mr-1" id="fetch_result">Submit</button>
+        </form>
+
+        <div id="score">
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var fetchBtn = document.getElementById('fetch_result');
+        var score = document.getElementById('score')
+
+
+        fetchBtn.addEventListener('click', (e) =>{
+            e.preventDefault()
+            var lga = document.getElementById('lgaText').value;
+
+            fetch("http://127.0.0.1:8000/get-loc/", {
+                body: JSON.stringify({
+                    "lga":lga
+                }),
+                method: 'POST'
+            }).then((res) => res.json()).then((data) =>{
+                //var json_data = JSON.parse(data)
+                console.log(data)
+                score.innerHTML =`
+                    <h2>Polling Unit</h2><span>${data["polling_unit"]}</span>
+                    <h4>Total Score</h4><span>${data["total_score"]}</span>
+                `
+            })
+        })
+
+    </script>
+{% endblock %}

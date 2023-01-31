@@ -1,0 +1,15 @@
+<div class="pagination_rounded">
+    <ul>
+        {% if pol_unit.has_previous %}
+        <li>
+            <a href="?{{ page_request_var }}={{ pol_unit.previous_page_number }}" class="prev"> <i class="fa fa-angle-left" aria-hidden="true"></i> Prev </a>
+        </li>
+        {% endif %}
+        <li><a href="?{{ page_request_var }}={{ pol_unit.number }}">{{ pol_unit.number }}</a>
+        </li>
+        {% if pol_unit.has_next %}
+        <li><a href="?{{ page_request_var }}={{ pol_unit.next_page_number }}" class="next"> Next <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+        </li>
+        {% endif %}
+    </ul>
+</div>

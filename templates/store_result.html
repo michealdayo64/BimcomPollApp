@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'header.html' %}
+
+
+  <div class="container">
+    <div class=" text-center mt-5 ">
+
+        <h1 >Store Poll Unit Result</h1>
+            
+        
+    </div>
+
+
+<div class="row ">
+  <div class="col-lg-7 mx-auto">
+    <div class="card mt-2 mx-auto p-4 bg-light">
+        <div class="card-body bg-light">
+   
+        <div class = "container">
+                         <form id="contact-form" role="form" method="post" action="{% url 'store-result' %}">
+                            {% csrf_token %}
+        
+
+        <div class="controls">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="form_name">polling_unit_id</label>
+                        <input id="form_name" type="number" name="polling_unit_id" class="form-control" placeholder="Please enter polling_id" required="required" data-error="Firstname is required.">
+                        
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="form_lastname">uniquewardid</label>
+                        <input id="form_lastname" type="number" name="uniquewardid" class="form-control" placeholder="Please enter uniquewardid" required="required" data-error="Lastname is required.">
+                                                        </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="form_email">polling_unit_number</label>
+                        <input id="form_email" type="text" name="polling_unit_number" class="form-control" placeholder="Please enter polling_unit_number *" required="required" data-error="Valid email is required.">
+                        
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="form_email">polling_unit_name</label>
+                        <input id="form_email" type="text" name="polling_unit_name" class="form-control" placeholder="Please enter polling_unit_name" required="required" data-error="Valid email is required.">
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <br>
+            <br>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="form_email">polling_unit_description</label>
+                        <input id="form_email" type="text" name="polling_unit_description" class="form-control" placeholder="Please enter polling_unit_description" required="required" data-error="Valid email is required.">
+                        
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="form_email">lat</label>
+                        <input id="form_email" type="text" name="lat" class="form-control" placeholder="Please enter latitute" required="required" data-error="Valid email is required.">
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="form_email">long</label>
+                        <input id="form_email" type="text" name="longi" class="form-control" placeholder="Please enter logitude" required="required" data-error="Valid email is required.">
+                        
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="form_email">entered_by_user</label>
+                        <input id="form_email" type="text" name="entered_by_user" class="form-control" placeholder="Please enter user" required="required" data-error="Valid email is required.">
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="form_email">date_entered</label>
+                        <input id="form_email" type="date" name="date_entered" class="form-control" placeholder="Please enter date" required="required" data-error="Valid email is required.">
+                        
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="form_email">user_ip_address</label>
+                        <input id="form_email" type="text" name="user_ip_address" class="form-control" placeholder="Please enter ip address" required="required" data-error="Valid email is required.">
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="" class="my-1 mr-2">Select Ward</label>
+                        <select name="ward_id" >
+                            <option value="">Select...</option>
+                            {% for ward in allWard %}
+                            <option value="{{ ward.id }}">{{ ward.ward_name }}</option>
+                            {% endfor %}
+                        </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="" class="my-1 mr-2">Select Local Government</label>
+                <select name="lga" id="lgaText">
+                    <option value="">Select...</option>
+                    {% for loc in allLga %}
+                    <option value="{{ loc.id }}">{{ loc.lga_name }}</option>
+                    {% endfor %}
+                </select>
+    
+               
+                            
+                        </div>
+                    </div>
+
+
+                
+                    
+                    
+            
+      
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="" class="my-1 mr-2">Select Party</label>
+                        <select name="party_name" >
+                            <option value="">Select...</option>
+                            {% for pat in allParty %}
+                            <option value="{{ pat.partyname }}">{{ pat.partyname }}</option>
+                            {% endfor %}
+                        </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="form_email">Party Score</label>
+                            <input id="form_email" type="number" name="party_score" class="form-control" placeholder="Please enter party_score" required="required" data-error="Valid email is required.">
+                            
+                        </div>
+                    </div>
+
+
+            </div>
+            <br><br>
+            <input type="submit" class="btn btn-success btn-send  pt-2 btn-block
+                        " value="Save Result" >
+                
+
+
+    </div>
+     </form>
+    </div>
+        </div>
+
+
+</div>
+    <!-- /.8 -->
+
+</div>
+<!-- /.row-->
+
+</div>
+<br><br>
+</div>
+
+
+  {% endblock %}
