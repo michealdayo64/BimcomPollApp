@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import django_heroku
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -83,16 +83,6 @@ WSGI_APPLICATION = 'Polls.wsgi.application'
     }
 }'''
 
-'''DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'railway',
-        'HOST': 'containers-us-west-132.railway.app',
-        'PORT': '6989',
-        'USER': 'root',
-        'PASSWORD': '7HCzbjCI5hYBOP5RGnJn'
-    }
-}'''
 
 DATABASES = {
     'default': {
@@ -149,5 +139,5 @@ STATICFILES_DIR = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
 
-django_heroku.settings(locals())
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
