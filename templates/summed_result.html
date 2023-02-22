@@ -26,13 +26,15 @@
     <script type="text/javascript">
         var fetchBtn = document.getElementById('fetch_result');
         var score = document.getElementById('score')
+        var url = window.location.origin
 
+        console.log(url)
 
         fetchBtn.addEventListener('click', (e) =>{
             e.preventDefault()
             var lga = document.getElementById('lgaText').value;
 
-            fetch("{% url 'get-loc' %}", {
+            fetch(`${url}/get-loc/`, {
                 body: JSON.stringify({
                     "lga":lga
                 }),
