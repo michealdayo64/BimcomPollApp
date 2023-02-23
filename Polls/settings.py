@@ -26,7 +26,7 @@ SECRET_KEY = '3qy6%136$a_(+zk$np8^udrt%@yrc1bt#de4yy+ek%d+m(e))p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['184.73.142.136']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'Polls.wsgi.application'
 }'''
 
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'mypolls', 
@@ -92,6 +92,18 @@ DATABASES = {
         'PASSWORD': 'mikky',
         'HOST': 'localhost', 
         'PORT': '5432',
+    }
+}'''
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway', 
+        'USER': 'postgres', 
+        'PASSWORD': 'irGlFRhsNGxYlOiN0KY8',
+        'HOST': 'containers-us-west-79.railway.app', 
+        'PORT': '7390',
     }
 }
 
