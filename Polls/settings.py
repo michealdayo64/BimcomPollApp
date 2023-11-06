@@ -26,7 +26,8 @@ SECRET_KEY = '3qy6%136$a_(+zk$np8^udrt%@yrc1bt#de4yy+ek%d+m(e))p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['bimcompollapp-production.up.railway.app']
+#ALLOWED_HOSTS = ['bimcompollapp-production.up.railway.app']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -84,19 +85,19 @@ WSGI_APPLICATION = 'Polls.wsgi.application'
 }'''
 
 
-'''DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mypolls', 
+        'NAME': 'bimcompoll', 
         'USER': 'mikky', 
-        'PASSWORD': 'mikky',
+        'PASSWORD': 'Silverspooon05_',
         'HOST': 'localhost', 
         'PORT': '5432',
     }
-}'''
+}
 
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway', 
@@ -105,7 +106,7 @@ DATABASES = {
         'HOST': 'containers-us-west-79.railway.app', 
         'PORT': '7390',
     }
-}
+}'''
 
 
 # Password validation
